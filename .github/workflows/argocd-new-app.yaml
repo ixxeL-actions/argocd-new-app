@@ -1,0 +1,24 @@
+---
+name: argocd-new-app-CI
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: ixxel/multi-tools-alpine:latest
+    steps:
+    - name: Git clone repo
+      uses: actions/checkout@v2
+    - name: Create new app with ArgoCD
+      uses: ixxeL-actions/argocd-new-app@main
+      with:
+        image-id: localhost/test:v1
+        transport: oci-archive
+        destination: /tmp/test-v1.tar
+        format: '""'
