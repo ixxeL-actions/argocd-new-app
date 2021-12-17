@@ -24,7 +24,7 @@ runs:
     run: |
       echo -e "${BLUE}[ STEP - CREATIN NEW APP ] > Creating new app with ArgoCD.${BLANK}"
       echo -e "${CYAN}[ INFO ] > ArgoCD version.${BLANK}"
-      argocd --version
+      argocd version
     shell: bash
     env:
       RED: \033[1;31m
